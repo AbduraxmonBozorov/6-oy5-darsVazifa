@@ -51,11 +51,11 @@ export default function TodoHeader(props) {
     props.counter.setCount(props.counter.count+1);
   }
   return (
-    <div>
-      <h1>Todo App</h1>
-      <form>
-        <input type="text" name="txt" ref={inpRef} id="txt" placeholder='Add your new todo' />
-        <button onClick={handleClick}>+</button>
+    <div className={styles["todo-header"]}>
+      <h1 className={styles.h1}>Todo App</h1>
+      <form className={styles.form}>
+        <input className={styles.input} type="text" name="txt" ref={inpRef} id="txt" placeholder='Add your new todo' />
+        <button className={styles.button} onClick={handleClick}>+</button>
       </form>
     </div>
   )

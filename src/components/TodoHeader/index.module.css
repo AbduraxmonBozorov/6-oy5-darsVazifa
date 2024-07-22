@@ -1,17 +1,17 @@
 
-h1{
+.h1{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 2rem;
   margin-bottom: 30px;  
 }
 
-form{
+.form{
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
 
-input{
+.input{
     width: 100%;
     padding: 5px 10px;
     border: 1px solid#cccbcb;
