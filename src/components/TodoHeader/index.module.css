@@ -1,0 +1,31 @@
+
+h1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 30px;  
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+input{
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid#cccbcb;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+button{
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0px 10px;
+    background-color: rgb(142 75 230);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
