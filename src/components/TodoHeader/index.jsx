@@ -1,54 +1,56 @@
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState } from 'react'
 import styles from "./index.module.css";
 export default function TodoHeader(props) {
 
-  const inpRef=useRef();
+  const inpRef = useRef();
   const [data, setData] = useState([]);
 
-  function validate(){
-    if(inpRef.current.value.length<3){
+  function validate() {
+    if (inpRef.current.value.length < 3) {
       alert("Eng kamida 4 ta belgi kirting");
       inpRef.current.focus();
-      inpRef.current.style.outlineColor="red";
+      inpRef.current.style.outlineColor = "red";
       return false;
     }
     return true;
   }
 
-  function getData(){
-    let data=[];
-    if(localStorage.getItem("data")){
-      data=JSON.parse(localStorage.getItem("data"))
+  function getData() {
+    let data = [];
+    if (localStorage.getItem("data")) {
+      data = JSON.parse(localStorage.getItem("data"))
     }
 
     return data;
   }
 
-  function handleClick(event){
+  function handleClick(event) {
     event.preventDefault();
-    let isValid=validate();
-    if(!isValid){
-      return ;
+    let isValid = validate();
+    if (!isValid) {
+      return;
     }
-    let todo=inpRef.current.value;
-    let data=getData();
-    let isExist=null;
-    
-    if(data.length>0){
-      isExist=data.includes(val=>{
-        return val.txt==todo;
-      })
-    }
+    let todo = inpRef.current.value;
+    let data = getData();
+    let isExist = null;
 
-    if(isExist){
+    data.forEach(element => {
+      if (element.txt == todo) {
+        isExist = 1;
+      }
+    });
+
+    if (isExist) {
       alert("Bu todo ro'yhatda mavjud");
+      inpRef.current.value = "";
       return;
     }
 
-    data.push({txt: todo, id: Date.now()})
+    data.push({ txt: todo, id: Date.now() })
     localStorage.setItem("data", JSON.stringify(data));
-    inpRef.current.value="";
-    props.counter.setCount(props.counter.count+1);
+    inpRef.current.value = "";
+    props.counter.setCount(props.counter.count + 1);
+
   }
   return (
     <div className={styles["todo-header"]}>

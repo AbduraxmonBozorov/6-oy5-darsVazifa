@@ -1,4 +1,10 @@
-.todo{
+#todoMain{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todoMain div{
     background-color: rgb(243 241 244);
     border-radius: 5px;
     width: 100%;
@@ -7,9 +13,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-.todo:hover i{
+#todoMain div:hover img{
     display: block!important;
 }
 
@@ -18,17 +25,17 @@ p{
     font-size: 18px;
 }
 
-i{
+img{
     padding: 12px 15px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: rgb(230 77 61);
-    height: 100%;
     cursor: pointer;
     display: none!important;
     transition: all .5s linear!important;
+    width: 30px;
+    position: absolute;
+    right: 5px;
+    z-index: 100;
+    border: 1px solid red;
 }
 
-i:active{
-    background-color: green;
-}

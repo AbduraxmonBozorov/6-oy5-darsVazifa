@@ -1,33 +1,42 @@
-import React, {useEffect} from 'react';
-import styles from "./index.module.css";
+import React, { useEffect } from 'react';
+import "./index.css";
+import trash from "../../assets/images/trash.svg";
 
 export default function TodoMain(props) {
-  function getData(){
-    let data=[];
-    if(localStorage.getItem("data")){
-      data=JSON.parse(localStorage.getItem("data"))
+  console.log(props);
+  function getData() {
+    let data = [];
+    if (localStorage.getItem("data")) {
+      data = JSON.parse(localStorage.getItem("data"))
     }
-
     return data;
   }
 
-  function createTodo(item){
+  function createTodo(item) {
     return `
-       <div className={styles.todo} id="${item.id}">
+       <div className="todo" id="${item.id}">
         <p>${item.txt}</p>
-        <i className="fa-solid fa-trash"></i>
+        <img src=${trash} alt="" />
+
       </div>
     `;
   }
 
+  function addTodo() {
+    let todoMain = document.querySelector("#todoMain");
+    let oldData = "";
+    todoMain.innerHTML = "";
+    let newData = getData();
+    newData.forEach(element => {
+      oldData += createTodo(element);
+    });
+    todoMain.innerHTML = oldData;
+  }
+
+  useEffect(addTodo, [props.counter]);
+
   return (
-    <div>
-     {
-      getData.length>0 && getData.map(item=>{
-        return createTodo(item);
-        console.log(createTodo);
-      })
-     }
+    <div id='todoMain'>
     </div>
   )
 }
