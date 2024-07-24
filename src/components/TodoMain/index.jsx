@@ -17,13 +17,13 @@ export default function TodoMain(props) {
     return `
        <div className="todo" id="${item.id}">
         <p>${item.txt}</p>
-        <img onClick={deleteTodo} src=${trash} alt="" />
+        <img onClick=${deleteTodo}   src=${trash} alt="" />
       </div>
     `;
   }
 
   function deleteTodo(event){
-    let parent=event.target.parent;
+    let parent=event
     console.log(parent);
   }
 

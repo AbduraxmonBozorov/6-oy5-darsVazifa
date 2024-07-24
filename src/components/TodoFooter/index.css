@@ -1,0 +1,12 @@
+#clearAll{
+    border: none;
+    background-color: rgb(146 72 238);
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+    float: right;
+}
+
+#clearAll:active{
+    background-color: rgb(122, 47, 213);
+}
