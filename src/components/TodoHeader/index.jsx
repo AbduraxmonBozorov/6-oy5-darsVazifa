@@ -52,6 +52,8 @@ export default function TodoHeader(props) {
     props.counter.setCount(props.counter.count + 1);
 
   }
+
+  
   return (
     <div className={styles["todo-header"]}>
       <h1 className={styles.h1}>Todo App</h1>

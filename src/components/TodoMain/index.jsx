@@ -3,7 +3,8 @@ import "./index.css";
 import trash from "../../assets/images/trash.svg";
 
 export default function TodoMain(props) {
-  console.log(props);
+  useEffect(addTodo, [props.counter]);
+ 
   function getData() {
     let data = [];
     if (localStorage.getItem("data")) {
@@ -11,15 +12,19 @@ export default function TodoMain(props) {
     }
     return data;
   }
-
+ 
   function createTodo(item) {
     return `
        <div className="todo" id="${item.id}">
         <p>${item.txt}</p>
-        <img src=${trash} alt="" />
-
+        <img onClick={deleteTodo} src=${trash} alt="" />
       </div>
     `;
+  }
+
+  function deleteTodo(event){
+    let parent=event.target.parent;
+    console.log(parent);
   }
 
   function addTodo() {
@@ -33,10 +38,9 @@ export default function TodoMain(props) {
     todoMain.innerHTML = oldData;
   }
 
-  useEffect(addTodo, [props.counter]);
-
   return (
     <div id='todoMain'>
+
     </div>
   )
 }

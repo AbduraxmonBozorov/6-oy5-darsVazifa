@@ -26,16 +26,21 @@ p{
 }
 
 img{
-    padding: 12px 15px;
+    padding: 9px 15px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
     display: none!important;
     transition: all .5s linear!important;
-    width: 30px;
+    background-color: rgb(231 76 61);
+    width: 50px;
     position: absolute;
-    right: 5px;
+    right: 0px;
     z-index: 100;
     border: 1px solid red;
 }
 
+
+img:active{
+    background-color: green;
+}
